@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(:version => 20091022121921) do
     t.string   "title"
     t.string   "description"
     t.string   "type"
-    t.string   "content"
+    t.string   "children_ids"
+    t.string   "tags_ids"
     t.text     "body"
     t.string   "media_file_name"
     t.string   "media_content_type"
@@ -27,6 +28,8 @@ ActiveRecord::Schema.define(:version => 20091022121921) do
     t.datetime "updated_at"
   end
 
+  add_index "clips", ["scope_id"], :name => "index_clips_on_scope_id"
   add_index "clips", ["title"], :name => "index_clips_on_title"
+  add_index "clips", ["type"], :name => "index_clips_on_type"
 
 end

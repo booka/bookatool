@@ -2,17 +2,18 @@
 class Cluster < Clip
   before_save :encode_children
 
+
   def children
-    @children ||= (content.blank? ? [] : Clip.all(:conditions => "clips.id IN (#{content})"))
+    @children ||= (children_ids.blank? ? [] : Clip.all(:conditions => "clips.id IN (#{children_ids})"))
   end
 
-  def content=(value)
-    self[:content] = value
+  def children_ids=(value)
+    self[:children_ids] = value
     @children = nil
   end
 
   private
   def encode_children
-    self.content = children.map(&:id).join(',')
+    self.children_ids = children.map(&:id).join(',')
   end
 end

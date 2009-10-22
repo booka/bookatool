@@ -10,36 +10,25 @@ class ClusterTest < ActiveSupport::TestCase
     end
 
 
-    should "be able to add childrens to itself" do
+    should "add children" do
       child = Factory(:clip, :title => 'children')
       @cluster.children << child
       assert_equal child, @cluster.children.first
       @cluster.save
-      assert_equal "#{child.id}", @cluster.content
+      copy = Cluster.find @cluster.id
+      assert_equal child, copy.children.first
     end
 
-    should "assign content" do
-      child = Factory(:clip)
-      @cluster.content = "#{child.id}"
-      assert_equal child, @cluster.children.first
-    end
   end
 
   context "Cluster with childrens" do
     setup do
-      @children = Array.new(5).map { Factory(:clip) }
-      ids = @children.map(&:id).join(',')
-      @parent = Factory(:cluster, :title => 'parent', :content => ids)
+      @parent = Factory(:cluster, :title => 'parent')
+      1.upto(5) { @parent.children << Factory(:clip)}
     end
 
-    should "have two childrens" do
+    should "retrieve childrens" do
       assert_equal 5, @parent.children.size
-    end
-
-    should "be able to retrieve childrens" do
-      @children.each_index do |index|
-        assert_equal @children[index], @parent.children[index]
-      end
     end
 
     should "add new children" do

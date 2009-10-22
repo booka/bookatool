@@ -6,15 +6,13 @@ class ClipTest < ActiveSupport::TestCase
   context "Basic clip" do
     setup do
       @clip = Factory(:clip, :title => 'title')
-      @clip.save
-    end
-
-    should "be on the database with factory girl" do
-      assert_equal 1, Clip.all.size
     end
 
     should "have title" do
       assert_equal "title", @clip.title
+    end
+
+    should "add a tag" do
     end
   end
   

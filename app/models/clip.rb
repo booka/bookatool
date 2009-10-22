@@ -1,7 +1,14 @@
 class Clip < ActiveRecord::Base
   validates_presence_of :title
-  validates_presence_of :scope
+  validates_presence_of :scope_id
 
-  has_one :scope, :class_name => 'Clip'
+  def scope
+    Clip.find scope_id
+  end
+
+  def tags
+    
+  end
+
 end
 

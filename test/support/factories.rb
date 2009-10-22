@@ -2,7 +2,7 @@
 class ClipBuilder
   def self.build(clip)
     clip.sequence(:title)  {|n| "clip-title-#{n}" }
-    clip.scope Booka.get
+    clip.scope_id Booka.id
   end
 end
 

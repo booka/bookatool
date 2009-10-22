@@ -4,7 +4,8 @@ class CreateClips < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :type
-      t.string :content
+      t.string :children_ids
+      t.string :tags_ids
       t.text :body
       t.string :media_file_name
       t.string :media_content_type
@@ -16,12 +17,12 @@ class CreateClips < ActiveRecord::Migration
       t.timestamps
     end
 
+    add_index :clips, :type
     add_index :clips, :title
+    add_index :clips, :scope_id
   end
 
   def self.down
     drop_table :clips
-    
-    remove_index :clips, :column => :title
   end
 end
