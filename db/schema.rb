@@ -9,6 +9,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 0) do
+ActiveRecord::Schema.define(:version => 20091022121921) do
+
+  create_table "clips", :force => true do |t|
+    t.string   "title"
+    t.string   "description"
+    t.string   "content_type"
+    t.string   "content"
+    t.text     "body"
+    t.string   "media_file_name"
+    t.string   "media_content_type"
+    t.integer  "media_file_size"
+    t.datetime "media_updated_at"
+    t.integer  "project_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "clips", ["title"], :name => "index_clips_on_title"
 
 end

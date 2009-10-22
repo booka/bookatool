@@ -1,0 +1,3 @@
+
+class Booka < Clip
+end
