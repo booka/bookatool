@@ -1,0 +1,4 @@
+
+class Tag < Cluster
+  
+end

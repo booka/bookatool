@@ -10,7 +10,7 @@ class CreateClips < ActiveRecord::Migration
       t.string :media_content_type
       t.integer :media_file_size
       t.datetime :media_updated_at
-      t.references :project
+      t.references :scope
       t.references :user
 
       t.timestamps

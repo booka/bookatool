@@ -1,10 +1,11 @@
 
-Factory.define :clip do |clip|
-  clip.sequence(:title)  {|n| "clip-title-#{n}" }
+class ClipBuilder
+  def self.build(clip)
+    clip.sequence(:title)  {|n| "clip-title-#{n}" }
+    clip.scope Booka.get
+  end
 end
 
-
-Factory.define :cluster do |clip|
-  clip.sequence(:title)  {|n| "cluster-title-#{n}" }
-end
-
+Factory.define(:clip) {|clip| ClipBuilder.build(clip) }
+Factory.define(:cluster) {|clip| ClipBuilder.build(clip) }
+Factory.define(:project) {|clip| ClipBuilder.build(clip) }

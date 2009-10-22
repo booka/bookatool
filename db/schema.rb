@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(:version => 20091022121921) do
     t.string   "media_content_type"
     t.integer  "media_file_size"
     t.datetime "media_updated_at"
-    t.integer  "project_id"
+    t.integer  "scope_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"

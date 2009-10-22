@@ -1,0 +1,4 @@
+
+class Project < Cluster
+  
+end
