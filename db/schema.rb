@@ -14,7 +14,7 @@ ActiveRecord::Schema.define(:version => 20091022121921) do
   create_table "clips", :force => true do |t|
     t.string   "title"
     t.string   "description"
-    t.string   "content_type"
+    t.string   "type"
     t.string   "content"
     t.text     "body"
     t.string   "media_file_name"
