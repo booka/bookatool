@@ -9,14 +9,23 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091022121921) do
+ActiveRecord::Schema.define(:version => 20091026112716) do
+
+  create_table "bips", :force => true do |t|
+    t.string   "group"
+    t.integer  "position"
+    t.integer  "clip_id"
+    t.integer  "child_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "bips", ["group"], :name => "index_bips_on_group"
 
   create_table "clips", :force => true do |t|
     t.string   "title"
     t.string   "description"
     t.string   "type"
-    t.string   "children_ids"
-    t.string   "tags_ids"
     t.text     "body"
     t.string   "media_file_name"
     t.string   "media_content_type"

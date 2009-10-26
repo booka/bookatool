@@ -3,17 +3,25 @@ require 'test_helper'
 class ClipTest < ActiveSupport::TestCase
   should_validate_presence_of :title
 
-  context "Basic clip" do
-    setup do
-      @clip = Factory(:clip, :title => 'title')
-    end
+#  context "Basic clip" do
+#    setup do
+#      @clip = Factory(:clip, :title => 'title')
+#    end
+#
+#    should "have title" do
+#      assert_equal "title", @clip.title
+#    end
+#  end
 
-    should "have title" do
-      assert_equal "title", @clip.title
-    end
+  context "Tagging clips" do
+    setup { @clip = Factory(:clip)}
 
     should "add a tag" do
+      assert_equal 0, @clip.tags.size
+      @clip.tags << Factory(:tag)
+      assert_equal 1, @clip.tags.size
     end
+
   end
   
 end

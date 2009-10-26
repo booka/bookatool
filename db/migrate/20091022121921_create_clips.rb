@@ -4,8 +4,6 @@ class CreateClips < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :type
-      t.string :children_ids
-      t.string :tags_ids
       t.text :body
       t.string :media_file_name
       t.string :media_content_type
