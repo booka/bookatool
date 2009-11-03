@@ -6,6 +6,6 @@ class ClipBuilder
   end
 end
 
-[:clip, :cluster, :project, :tag].each do |name|
+[:clip, :cluster, :project, :tag, :comment, :media, :bag, :package].each do |name|
   Factory.define(name) {|clip| ClipBuilder.build(name, clip) }
 end
