@@ -1,2 +1,2 @@
-class Media < ActiveRecord::Base
+class Media < Clip
 end

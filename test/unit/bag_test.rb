@@ -4,10 +4,19 @@ class BagTest < ActiveSupport::TestCase
   context "basic Bag" do
     setup { @bag = Factory(:bag)}
 
+    should "have children" do
+      @bag.children << Factory(:media)
+      assert_equal 1, @bag.children.size
+    end
 
-    should "have childrens" do
-      @bag.children = Factory(:media)
-      test_equal 1, @bag.children.size
+    should "differenciate between children and tags or messages" do
+      @bag.tags << Factory(:tag)
+      @bag.comments << Factory(:comment)
+      @bag.children << Factory(:media)
+
+      assert_equal 1, @bag.tags.size
+      assert_equal 1, @bag.comments.size
+      assert_equal 1, @bag.children.size
     end
   end
 
