@@ -1,0 +1,12 @@
+<% if details.children? %>
+  <div class="children">
+    <%= add_children_links details %>
+    <% details.children.each do |child| -%>
+      <%= render child %>
+    <% end -%>
+  </div>
+<% else -%>
+  <div class="detail">
+
+  </div>
+<% end %>

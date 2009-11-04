@@ -1,0 +1,8 @@
+
+<% div_for(clip, :class => 'clip') do %>
+<ul>
+  <li><%= t("clip.types.#{clip.type}") %></li>
+  <li><label><%= t('clip.title') %>: </label><%= clip.title %></li>
+  <li><label><%= t('clip.description') %>: </label><%= clip.description %></li>
+</ul>
+<% end %>

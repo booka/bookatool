@@ -1,0 +1,7 @@
+es:
+  clip:
+    title: "Título"
+    description: "Descripción"
+    types:
+      Booka: "Projectos registrados"
+      Project: "Proyecto"
