@@ -3,7 +3,8 @@ ActionController::Routing::Routes.draw do |map|
 
   map.resource :booka
   map.resources :projects
-  map.resources :indexes
+  map.resources :indices
+  map.resources :bags
   map.resources :clips
 
   map.connect ':controller/:action/:id'

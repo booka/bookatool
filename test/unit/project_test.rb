@@ -15,6 +15,16 @@ class ProjectTest < ActiveSupport::TestCase
       @project = Factory :project
     end
 
+    should "have children" do
+      assert @project.children?
+    end
+
+    should "have Bag as children type" do
+      assert @project.children_types.include? 'Bag'
+    end
+
+
+
 
     should "be a project" do
       assert_equal 'Project', @project.type

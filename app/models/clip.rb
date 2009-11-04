@@ -1,12 +1,10 @@
 class Clip < ActiveRecord::Base
-  has_many :bips
-  has_many :tags, :through => :bips, :class_name => 'Tag', :as => :parent, :source => :child,
-    :conditions => {:type => 'Tag'}
-  has_many :comments, :through => :bips, :class_name => 'Comment', :as => :parent, :source => :child,
-    :conditions => {:type => 'Comment'}
+  include ClipRelations
 
-  CHILDREN_TYPES = []
-  #as_children CHILDREN_TYPES
+  has_many :bips
+  clip_relation :tags, [:Tag]
+  clip_relation :comments, [:Comment]
+  clip_relation :children, []
 
 
   validates_presence_of :title
@@ -16,8 +14,8 @@ class Clip < ActiveRecord::Base
     Clip.find scope_id
   end
 
-  def children?
-    false
+  def children?(name = :children)
+    self.respond_to?(name)
   end
 
   def children_types
