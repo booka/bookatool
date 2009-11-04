@@ -17,10 +17,5 @@ class Clip < ActiveRecord::Base
   def children?(name = :children)
     self.respond_to?(name)
   end
-
-  def children_types
-    CHILDREN_TYPES
-  end
-
 end
 

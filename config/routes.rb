@@ -4,6 +4,7 @@ ActionController::Routing::Routes.draw do |map|
   map.resource :booka
   map.resources :projects
   map.resources :indices
+  map.resources :packages
   map.resources :bags
   map.resources :clips
 
