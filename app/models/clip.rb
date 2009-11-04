@@ -5,6 +5,9 @@ class Clip < ActiveRecord::Base
   has_many :comments, :through => :bips, :class_name => 'Comment', :as => :parent, :source => :child,
     :conditions => {:type => 'Comment'}
 
+  CHILDREN_TYPES = []
+  #as_children CHILDREN_TYPES
+
 
   validates_presence_of :title
 #  validates_presence_of :scope_id
@@ -18,10 +21,8 @@ class Clip < ActiveRecord::Base
   end
 
   def children_types
-    []
+    CHILDREN_TYPES
   end
-
-
 
 end
 

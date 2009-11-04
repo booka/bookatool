@@ -5,7 +5,7 @@ class ProjectsController < ApplicationController
   actions :all, :except => :index
 
   def create
-    @project = Project.new(params[:project])
+    @project = Booka.projects.build(params[:project])
     create! do |s, f|
       s.html {redirect_to booka_path}
     end

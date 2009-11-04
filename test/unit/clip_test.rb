@@ -11,6 +11,10 @@ class ClipTest < ActiveSupport::TestCase
     should "have title" do
       assert_equal "title", @clip.title
     end
+
+    should "not have children" do
+      assert !@clip.children?
+    end
   end
 
   context "Tagging clips" do
