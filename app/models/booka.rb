@@ -5,7 +5,6 @@ class Booka < Clip
   has_many :projects, :through => :bips, :as => :parent, :source => :child,
     :conditions => {:type => CHILDREN_TYPES}
 
-
   def children?
     true
   end
@@ -30,14 +29,14 @@ class Booka < Clip
 
   def self.get
     begin
-      Booka.find(1)
+      @@booka ||= Booka.find(1)
     rescue ActiveRecord::RecordNotFound
       booka =  Booka.new
       booka.id = 1
       booka.title = 'Booka'
-      booka.scope_id = 1
+      booka.project_id = 1
       booka.save(false)
-      booka
+      @@booka ||= booka
     end
   end
 end

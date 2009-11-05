@@ -1,2 +1,2 @@
-class Comment < Cluster
+class Comment < Clip
 end

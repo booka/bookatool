@@ -1,4 +1,4 @@
-class Project < Cluster
+class Project < Clip
   after_create :add_to_booka
   clip_relation :children, [:Bag, :Index]
 

@@ -9,7 +9,7 @@ class CreateClips < ActiveRecord::Migration
       t.string :media_content_type
       t.integer :media_file_size
       t.datetime :media_updated_at
-      t.references :scope
+      t.references :project
       t.references :user
 
       t.timestamps
@@ -17,7 +17,7 @@ class CreateClips < ActiveRecord::Migration
 
     add_index :clips, :type
     add_index :clips, :title
-    add_index :clips, :scope_id
+    add_index :clips, :project_id
   end
 
   def self.down

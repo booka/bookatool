@@ -1,6 +1,7 @@
 class Clip < ActiveRecord::Base
   include ClipRelations
 
+  belongs_to :project
   has_many :bips
   clip_relation :tags, [:Tag]
   clip_relation :comments, [:Comment]
@@ -8,11 +9,8 @@ class Clip < ActiveRecord::Base
 
 
   validates_presence_of :title
-#  validates_presence_of :scope_id
+  #validates_presence_of :project_id
 
-  def scope
-    Clip.find scope_id
-  end
 
   def children?(name = :children)
     self.respond_to?(name)

@@ -9,12 +9,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20091103091045) do
-
-  create_table "bags", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
+ActiveRecord::Schema.define(:version => 20091026112716) do
 
   create_table "bips", :force => true do |t|
     t.string   "group"
@@ -36,29 +31,14 @@ ActiveRecord::Schema.define(:version => 20091103091045) do
     t.string   "media_content_type"
     t.integer  "media_file_size"
     t.datetime "media_updated_at"
-    t.integer  "scope_id"
+    t.integer  "project_id"
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "clips", ["scope_id"], :name => "index_clips_on_scope_id"
+  add_index "clips", ["project_id"], :name => "index_clips_on_project_id"
   add_index "clips", ["title"], :name => "index_clips_on_title"
   add_index "clips", ["type"], :name => "index_clips_on_type"
-
-  create_table "comments", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "medias", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "packages", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
 
 end

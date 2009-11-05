@@ -1,4 +1,0 @@
-
-class Cluster < Clip
-
-end

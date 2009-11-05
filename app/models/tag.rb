@@ -1,4 +1,4 @@
 
-class Tag < Cluster
+class Tag < Clip
   
 end
