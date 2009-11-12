@@ -1,8 +1,10 @@
 require 'test_helper'
 
-class BicTest < ActiveSupport::TestCase
-  # Replace this with your real tests.
-  test "the truth" do
-    assert true
+
+
+class BipTest < ActiveSupport::TestCase
+  context "a basic bip" do
+    should_belong_to :clip
+    should_belong_to :child
   end
 end
