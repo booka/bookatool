@@ -4,6 +4,8 @@ class CreateClips < ActiveRecord::Migration
       t.string :title
       t.string :description
       t.string :type
+      t.string :subtype
+      t.string :properties, :length => 4096
       t.text :body
       t.string :media_file_name
       t.string :media_content_type

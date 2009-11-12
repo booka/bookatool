@@ -1,4 +1,0 @@
-
-class Tag < Clip
-  
-end

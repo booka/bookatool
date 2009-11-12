@@ -3,9 +3,4 @@ class ApplicationController < ActionController::Base
   protect_from_forgery
   layout 'work'
 
-  protected
-  def load_booka
-    @booka = Booka.get
-  end
-
 end

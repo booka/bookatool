@@ -1,4 +1,0 @@
-
-class Activity < Clip
-  
-end

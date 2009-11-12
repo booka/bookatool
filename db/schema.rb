@@ -26,6 +26,8 @@ ActiveRecord::Schema.define(:version => 20091026112716) do
     t.string   "title"
     t.string   "description"
     t.string   "type"
+    t.string   "subtype"
+    t.string   "properties"
     t.text     "body"
     t.string   "media_file_name"
     t.string   "media_content_type"
