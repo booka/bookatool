@@ -1,13 +1,7 @@
 ActionController::Routing::Routes.draw do |map|
   map.root :controller => 'clusters', :action => 'index'
 
-  map.resource :booka
-  map.resources :projects
-  map.resources :indices
-  map.resources :packages
-  map.resources :bags
-  map.resources :clips
-
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  map.resource :clips
+  map.resources :clusters
+  map.resources :contents
 end

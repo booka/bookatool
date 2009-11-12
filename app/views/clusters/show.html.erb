@@ -1,0 +1,8 @@
+
+<%= render 'clips/clip', :object => @cluster %>
+<div class="children">
+  <%= add_children_links @cluster %>
+  <% @cluster.children.each do |child| -%>
+    <%= render child %>
+  <% end -%>
+</div>

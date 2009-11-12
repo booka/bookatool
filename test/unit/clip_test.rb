@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ClipTest < ActiveSupport::TestCase
-  should_validate_presence_of :title
+  #should_validate_presence_of :title
 
   context "Basic clip" do
     setup do
@@ -18,11 +18,14 @@ class ClipTest < ActiveSupport::TestCase
   end
 
   context "Tagging clips" do
-    setup { @clip = Factory(:clip)}
+    setup do
+      @clip = Clip.new
+      assert_equal 0, @clip.tags.size
+      assert_equal 0, @clip.comments.size
+    end
 
     should "add a tag" do
-      assert_equal 0, @clip.tags.size
-      @clip.tags << Factory(:tag)
+      @clips.tags << Content.build(:tag)
       assert_equal 1, @clip.tags.size
     end
   end

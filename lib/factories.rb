@@ -1,10 +1,6 @@
 
 module Factories
 
-  #futurable
-  class Factory
-  end
-
   class Registry
     def initialize
       @decorators = {}
@@ -38,23 +34,21 @@ module Factories
     REGISTRY.decorate(name, cluster)
   end
 
-  module Cluster
-    def self.included(base)
-      base.send(:include,InstanceMethods)
-      base.send(:extend, ClassMethods)
+  def self.included(base)
+    #base.send(:include,InstanceMethods)
+    base.send(:extend, ClassMethods)
+  end
+
+  module InstanceMethods
+  end
+
+  module ClassMethods
+    def register(name, &block)
+      REGISTRY.register(self.name.downcase.to_sym, name, &block)
     end
 
-    module InstanceMethods
-    end
-
-    module ClassMethods
-      def register(name, &block)
-        REGISTRY.register(:cluster, name, &block)
-      end
-
-      def Cluster(name)
-        REGISTRY.build(name)
-      end
+    def build(name)
+      REGISTRY.build(name)
     end
   end
 end

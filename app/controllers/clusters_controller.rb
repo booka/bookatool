@@ -2,6 +2,7 @@ class ClustersController < ApplicationController
   inherit_resources
 
   def index
-    @projects = Cluster.root
+    redirect_to Cluster.root
   end
+
 end

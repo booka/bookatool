@@ -1,8 +1,8 @@
 class Clip < ActiveRecord::Base
   include ClipRelations
   include HashProperties
+  include Factories
 
-  hash_properties :properties
   belongs_to :project
   has_many :bips
   clip_relation :tags, [:Tag]
@@ -10,7 +10,7 @@ class Clip < ActiveRecord::Base
   clip_relation :children, []
 
 
-  validates_presence_of :title
+  #validates_presence_of :title
   #validates_presence_of :project_id
 
 
