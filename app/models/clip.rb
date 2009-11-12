@@ -1,6 +1,8 @@
 class Clip < ActiveRecord::Base
   include ClipRelations
+  include HashProperties
 
+  hash_properties :properties
   belongs_to :project
   has_many :bips
   clip_relation :tags, [:Tag]

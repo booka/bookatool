@@ -1,5 +1,5 @@
 ActionController::Routing::Routes.draw do |map|
-  map.root :controller => 'projects', :action => 'index'
+  map.root :controller => 'clusters', :action => 'index'
 
   map.resource :booka
   map.resources :projects
