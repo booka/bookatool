@@ -5,17 +5,11 @@ class Clip < ActiveRecord::Base
 
   belongs_to :project
   has_many :bips
-  clip_relation :tags, [:Tag]
-  clip_relation :comments, [:Comment]
-  clip_relation :children, []
 
-
-  #validates_presence_of :title
-  #validates_presence_of :project_id
-
-
-  def children?(name = :children)
-    self.respond_to?(name)
+  has_many(:clips, :through => :bips, :source => :child) do
+    def grouped_by(group)
+      find(:all, :conditions => {:bips => {:group => group.to_s}})
+    end
   end
 end
 
